@@ -1,0 +1,19 @@
+CREATE UserTable
+(
+	Username VarChar(30)
+	U_Password VarChar(30)
+	Name VarChar(30)
+	Surname VarChar(30)
+	RegisterDate Date
+)
+
+//Default.aspx.cs 
+INSERT INTO UserTable VALUES(@Username,@Password,@Name,@Surname, @RegisterDate)
+
+//Insert.aspx.cs
+INSERT INTO Customers VALUES(@CustomerID,@CompanyName,@ContactName,@ContactTitle,@Address, @City, @Region, @PostalCode,@Country, @Phone, @Fax)
+
+//NewOrder.aspx.cs
+INSERT INTO Orders(CustomerID) VALUES(@CustomerID)
+INSERT INTO Order_Details(OrderID,ProductID,UnitPrice,Quantity) VALUES(@OrderID,@ProductID,@UnitPrice,@Quantity)
+SELECT UnitPrice FROM Products
